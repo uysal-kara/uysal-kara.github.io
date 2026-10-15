@@ -22,6 +22,6 @@ As an experienced software developer, I bring extensive expertise in utilizing d
 
 ## Contact
 
-- [LinkedIn](https://www.linkedin.com/in/uysal-kara)
+- [LinkedIn](https://www.linkedin.com/in/kuysal)
 - [GitHub](https://github.com/uysal-kara)
 - [Email](mailto:uysal.kara@gmail.com)
