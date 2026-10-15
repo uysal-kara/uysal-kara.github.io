@@ -1,6 +1,5 @@
-
 /***************/
-/* MEYER RESET */
+/* MODERN RESET */
 /***************/
 
 html, body, div, span, applet, object, iframe,
@@ -23,31 +22,70 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 // HTML5 display-role reset for older browsers
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
 	line-height: 1;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 blockquote, q {
 	quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-// Apply a natural box layout model to all elements
-// from: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+
+// Apply a natural box layout to all elements
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+// Better focus styles
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: 2px solid $blue;
+  outline-offset: 2px;
+}
+
+// Selection styles
+::selection {
+  color: $white;
+  background: $blue;
+}
+
+::-moz-selection {
+  color: $white;
+  background: $blue;
+}
+
+// Remove default margin for paragraphs in lists
+li > p {
+  margin: 0.5em 0;
+}
+
+// Clean up table styles
+th, td {
+  border: 1px solid $border-light;
+  padding: 8px 12px;
+}
+
+th {
+  background: $bg-secondary;
+  font-weight: 600;
 }

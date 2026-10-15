@@ -1,5 +1,10 @@
 
- Software design principles are guidelines that help developers write better and more maintainable code. These principles provide a set of best practices that aim to make software development more efficient, scalable, and reliable. In this blog post, we will discuss five software design principles that are critical to building high-quality software.
+ ---
+layout: post
+title: Design Principles
+---
+
+Software design principles are guidelines that help developers write better and more maintainable code. These principles provide a set of best practices that aim to make software development more efficient, scalable, and reliable. In this blog post, we will discuss five software design principles that are critical to building high-quality software.
 
 ### Modularity
 Modularity is a design principle that advocates breaking down complex systems into smaller, more manageable parts. In software development, modularity means designing software systems as a collection of independent modules that can be developed, tested, and maintained separately. Each module should have a well-defined purpose and a clear interface with the rest of the system.

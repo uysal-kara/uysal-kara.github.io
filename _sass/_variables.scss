@@ -1,10 +1,11 @@
-
 //
 // VARIABLES
 //
 
 // Colors
 $blue: #4183C4;
+$blue-dark: darken($blue, 15%);
+$blue-light: lighten($blue, 10%);
 
 // Grays
 $black: #000;
@@ -14,14 +15,69 @@ $gray: #666;
 $lightGray: #eee;
 $white: #fff;
 
+// Accent colors
+$accent: #432DBA;
+$accent-hover: darken($accent, 10%);
+
+// Text colors
+$text-primary: #2D3748;
+$text-secondary: #718096;
+$text-muted: #A0AEC0;
+
+// Background colors
+$bg-primary: #FFFFFF;
+$bg-secondary: #F7FAFC;
+$bg-tertiary: #EDF2F7;
+
+// Border colors
+$border-light: #E2E8F0;
+$border-medium: #CBD5E0;
+
+// Code colors
+$code-bg: #F8F9FA;
+$code-text: #E53E3E;
+
 // Font stacks
 $helvetica: Helvetica, Arial, sans-serif;
 $helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $georgia: Georgia, serif;
+$source-sans: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-circle: 50%;
+
+// Shadows
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+$shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 
 // Mobile breakpoints
 @mixin mobile {
   @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+// Tablet breakpoint
+@mixin tablet {
+  @media screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+// Desktop breakpoint
+@mixin desktop {
+  @media screen and (min-width: 961px) {
     @content;
   }
 }
