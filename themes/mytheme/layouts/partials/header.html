@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header-inner">
+    <div class="site-brand">
+      <div class="site-avatar">
+        <a href="{{ .Site.Home.Permalink }}">
+          <img src="{{ .Site.Params.avatar }}" alt="{{ .Site.Title }} Avatar" />
+        </a>
+      </div>
+      <div>
+        <div class="site-name">
+          <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
+        </div>
+        <div class="site-description">{{ .Site.Params.description }}</div>
+      </div>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{{ .Site.Home.Permalink }}" {{ if eq .Title "Home" }}class="active"{{ end }}>Home</a></li>
+        <li><a href="{{ "about/" | absURL }}" {{ if eq .Title "About" }}class="active"{{ end }}>About</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

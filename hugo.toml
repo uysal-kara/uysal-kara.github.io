@@ -1,0 +1,54 @@
+# Hugo Configuration
+
+# Site settings
+baseURL = "https://uysal-kara.github.io/"
+title = "Uysal KARA"
+author = "Uysal KARA"
+description = "Senior Developer"
+
+# Language settings
+defaultContentLanguage = "en"
+
+# Theme
+theme = "mytheme"
+
+# Menu
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "Home"
+    weight = 10
+    url = "/"
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    weight = 20
+    url = "/about/"
+
+# Social links
+[params]
+  avatar = "https://avatars.githubusercontent.com/u/8747857?s=96&v=4"
+  description = "Senior Developer"
+  github = "uysal-kara"
+  linkedin = "kuysal"
+  email = "uysal.kara@gmail.com"
+  stackoverflow = "uysal-kara"
+  analytics = "G-SFYGKXMNBV"
+
+# Google Analytics
+[googleAnalytics]
+  trackingCode = "G-SFYGKXMNBV"
+
+# Sitemap
+[sitemap]
+  filename = "sitemap.xml"
+  changeFreq = "monthly"
+  priority = 0.5
+
+# Permalinks
+[permalinks]
+  posts = ":title/"
+
+# Taxonomies
+[taxonomies]
+  tag = "tags"

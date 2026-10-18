@@ -1,0 +1,15 @@
+{{ define "main" }}
+<article class="single-page">
+  <header class="about-header">
+    <h1 class="about-title">{{ .Title }}</h1>
+  </header>
+  
+  <div class="about-content">
+    {{ .Content }}
+  </div>
+  
+  <a href="{{ .Site.Home.Permalink }}" class="back-link">
+    ← Back to Home
+  </a>
+</article>
+{{ end }}

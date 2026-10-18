@@ -8,3 +8,9 @@ Gemfile
 Gemfile.lock
 node_modules
 package.json
+
+# Hugo
+public/
+resources/
+.hugo_build.lock
+bin/
