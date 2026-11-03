@@ -35,10 +35,6 @@ theme = "mytheme"
   stackoverflow = "uysal-kara"
   analytics = "G-SFYGKXMNBV"
 
-# Google Analytics
-[googleAnalytics]
-  trackingCode = "G-SFYGKXMNBV"
-
 # Sitemap
 [sitemap]
   filename = "sitemap.xml"
