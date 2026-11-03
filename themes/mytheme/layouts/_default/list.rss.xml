@@ -1,0 +1,27 @@
+{{ printf "<?xml version=\"1.0\"?>\n" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}</description>
+    <language>{{ .Site.Language.Lang }}</language>
+    <managingEditor>{{ .Site.Params.email }} ({{ .Site.Title }})</managingEditor>
+    <webMaster>{{ .Site.Params.email }} ({{ .Site.Title }})</webMaster>
+    <copyright>{{ .Site.Params.copyright | default (printf "© %d %s" now.Year .Site.Title) }}</copyright>
+    {{ if .Site.Params.feed.disallowed }}
+    <atom:link href="{{ .Permalink }}" rel="self" type="application/rss+xml" />
+    {{ end }}
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ $posts := first 10 (where site.RegularPages "Section" "posts") }}
+    {{ range $posts }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .Date.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>
+      <author>{{ .Site.Params.email }} ({{ .Site.Title }})</author>
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ .Summary | html }}</description>
+    </item>
+    {{ end }}
+  </channel>
+</rss>

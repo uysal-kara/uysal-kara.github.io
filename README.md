@@ -1,71 +1,65 @@
 # uysal-kara.github.io
 
-Jekyll-based personal blog and portfolio site hosted on GitHub Pages.
+Hugo-based personal blog and portfolio site hosted on GitHub Pages.
 
 ## Features
 
-- **Modern Design**: Updated CSS with responsive layout, smooth transitions, and improved typography
-- **SEO Optimized**: Enhanced meta tags with OpenGraph, Twitter Cards, and structured data
-- **Accessibility**: Improved HTML5 structure with proper ARIA attributes
-- **Syntax Highlighting**: Modern Dracula-inspired code highlighting
+- **Modern Design**: Clean responsive layout with smooth transitions and improved typography
+- **SEO Optimized**: Meta tags with OpenGraph and Twitter Cards
+- **Accessibility**: HTML5 structure with proper ARIA attributes
 - **Responsive**: Mobile-first design with breakpoints for tablet and desktop
-- **Analytics**: Google Analytics integration ready
+- **Analytics**: Google Analytics integration
 - **Social Icons**: Inline SVG icons for footer links
 
 ## Project Structure
 
 ```
-├── _config.yml          # Site configuration (social links, analytics)
-├── _includes/           # HTML snippets and includes
-│   ├── analytics.html   # Google Analytics script
-│   ├── meta.html        # SEO meta tags and OpenGraph
-│   └── svg-icons.html   # Social media icon links
-├── _layouts/            # Page layouts
-│   ├── default.html     # Main layout with HTML5 boilerplate
-│   ├── page.html        # Page layout (for static pages)
-│   └── post.html        # Blog post layout with meta info
-├── _posts/              # Blog posts (Markdown files)
-├── _sass/               # SCSS stylesheets
-│   ├── _highlights.scss # Syntax highlighting (Dracula theme)
-│   ├── _reset.scss      # Modern CSS reset
-│   ├── _svg-icons.scss  # Social icon styling
-│   └── _variables.scss  # Design tokens and breakpoints
+├── content/             # Site content
+│   ├── _index.md        # Homepage
+│   ├── about/           # About page
+│   └── posts/           # Blog posts
+├── themes/mytheme/      # Hugo theme
+│   ├── assets/css/      # Stylesheets
+│   └── layouts/         # Page templates
 ├── images/              # Static images
+├── hugo.toml            # Site configuration
 ├── 404.md               # Custom 404 page
-├── about.md             # About page with expertise section
-├── index.html           # Homepage with blog posts
-├── style.scss           # Main stylesheet
-└── Gemfile              # Ruby gems for local development
+└── CNAME                  # Custom domain
 ```
 
 ## Getting Started
 
 ### Local Development
 
-1. Install Jekyll and dependencies:
+1. Install Hugo extended version:
    ```bash
-   gem install bundler
-   bundle install
+   # macOS
+   brew install hugo
+
+   # Windows (winget)
+   winget install Hugo.Hugo
+
+   # Or download from https://gohugo.io/installation/
    ```
 
 2. Serve the site locally:
    ```bash
-   jekyll serve
+   hugo server
    ```
 
-3. View at `http://127.0.0.1:4000/`
+3. View at `http://127.0.0.1:1313/`
 
 ### Adding Blog Posts
 
-Create new posts in `_posts/` with the filename format: `YYYY-MM-DD-title.md`
+Create new posts in `content/posts/` with the filename format: `title.md`
 
 Example:
 ```markdown
 ---
-layout: post
 title: "My New Post"
-date: 2024-01-15 10:00:00
-tags: [jekyll, blog]
+date: 2024-01-15
+description: "Post description"
+tags: [hugo, blog]
 ---
 
 Your content here...
@@ -73,14 +67,11 @@ Your content here...
 
 ## Customization
 
-- **Social Links**: Update `_config.yml` footer-links section
-- **Colors/Design**: Modify `_sass/_variables.scss` for design tokens
-- **Meta Tags**: Update `_includes/meta.html` for SEO
-- **Analytics**: Add your Google Analytics ID to `_config.yml`
+- **Site Config**: Edit `hugo.toml` for title, description, social links, and analytics
+- **Styles**: Modify `themes/mytheme/assets/css/main.css`
+- **Layouts**: Update templates in `themes/mytheme/layouts/`
+- **Analytics**: Set `params.analytics` in `hugo.toml`
 
-## Credits
+## Deployment
 
-- [Jekyll](https://github.com/jekyll/jekyll) - Static site generator
-- [SVG Icons](https://github.com/neilorangepeel/Free-Social-Icons) - Social media icons
-- [Source Sans Pro](https://fonts.google.com/) - Google Font for typography
-- [Dracula Theme](https://draculatheme.com/) - Syntax highlighting colors
+The site is automatically deployed to GitHub Pages via GitHub Actions on push to `master`.

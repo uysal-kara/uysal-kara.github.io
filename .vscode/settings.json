@@ -1,0 +1,5 @@
+{
+    "chat.agent.sandbox.credentials.authenticategh": false,
+    "chat.agent.sandbox.network.allowLocalNetwork": true,
+    "chat.agent.sandbox.credentials.authenticategit": false
+}

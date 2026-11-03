@@ -10,11 +10,20 @@
 {{ end }}
 
 {{ if .Params.description }}
-<meta name="description" content="{{ .Params.description | truncate 50 }}" />
-<meta property="og:description" content="{{ .Params.description | truncate 50 }}" />
+<meta name="description" content="{{ .Params.description }}" />
+<meta property="og:description" content="{{ .Params.description }}" />
 {{ else }}
 <meta name="description" content="{{ .Site.Params.description }}">
 <meta property="og:description" content="{{ .Site.Params.description }}" />
+{{ end }}
+
+<!-- OpenGraph Image -->
+{{ if .Params.image }}
+<meta property="og:image" content="{{ .Params.image | absURL }}" />
+<meta name="twitter:image" content="{{ .Params.image | absURL }}" />
+{{ else }}
+<meta property="og:image" content="{{ "images/og-banner.png" | absURL }}" />
+<meta name="twitter:image" content="{{ "images/og-banner.png" | absURL }}" />
 {{ end }}
 
 <meta name="author" content="{{ .Site.Title }}" />
@@ -33,11 +42,20 @@
 <meta property="og:site_name" content="{{ .Site.Title }}" />
 <meta property="og:locale" content="en_US" />
 
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@uysal_kara" />
 
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ .Permalink }}" />
+
+<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="{{ "images/favicon.ico" | absURL }}" />
 <link rel="apple-touch-icon" href="{{ "images/favicon.ico" | absURL }}" />
+
+<!-- RSS Feed -->
+{{ range .AlternativeOutputFormats -}}
+{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
