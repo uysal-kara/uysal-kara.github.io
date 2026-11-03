@@ -10,5 +10,9 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    {{ $darkMode := resources.Get "js/dark-mode.js" }}
+    {{ with $darkMode }}
+    <script src="{{ .Permalink }}"></script>
+    {{ end }}
   </body>
 </html>

@@ -50,6 +50,44 @@
   }
 }
 
+/* ===== Manual Dark Mode Override ===== */
+body.dark-mode {
+  --color-bg: #0a0a0a;
+  --color-surface: #141414;
+  --color-text: #e5e5e5;
+  --color-text-secondary: #a3a3a3;
+  --color-text-tertiary: #737373;
+  --color-accent: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-border: #262626;
+  --color-code-bg: #1a1a1a;
+  --color-code-text: #e5e5e5;
+  --color-tag-bg: #1f1f1f;
+  --color-tag-hover: #2a2a2a;
+  --color-link: #3b82f6;
+  --color-link-hover: #2563eb;
+}
+
+body.dark-mode .header {
+  background: rgba(10, 10, 10, 0.85);
+}
+
+body:not(.dark-mode) .theme-toggle .icon-moon {
+  display: block;
+}
+
+body:not(.dark-mode) .theme-toggle .icon-sun {
+  display: none;
+}
+
+body.dark-mode .theme-toggle .icon-moon {
+  display: none;
+}
+
+body.dark-mode .theme-toggle .icon-sun {
+  display: block;
+}
+
 /* ===== Reset & Base ===== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -121,6 +159,12 @@ img {
   max-width: 720px;
   margin: 0 auto;
   padding: 0 1.5rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .site-brand {
@@ -563,6 +607,36 @@ img {
 
 .footer-links a:hover {
   color: var(--color-accent);
+}
+
+/* ===== Theme Toggle ===== */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.theme-toggle:hover {
+  background: var(--color-tag-bg);
+  color: var(--color-text);
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.icon-moon,
+.icon-sun {
+  transition: opacity 0.2s ease;
 }
 
 /* ===== Animations ===== */
