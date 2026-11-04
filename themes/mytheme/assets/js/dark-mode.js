@@ -1,7 +1,7 @@
 // Dark mode toggle with localStorage persistence
 (function() {
   const toggle = document.getElementById('theme-toggle');
-  const body = document.body;
+  const html = document.documentElement;
   const iconMoon = toggle.querySelector('.icon-moon');
   const iconSun = toggle.querySelector('.icon-sun');
   
@@ -10,35 +10,29 @@
   const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
   // Apply initial theme
-  if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-    body.classList.add('dark-mode');
-    iconMoon.style.display = 'none';
-    iconSun.style.display = 'block';
-  }
+  const isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+  html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+  iconMoon.style.display = isDark ? 'none' : 'block';
+  iconSun.style.display = isDark ? 'block' : 'none';
   
   // Toggle on click
   toggle.addEventListener('click', function() {
-    body.classList.toggle('dark-mode');
-    const isDark = body.classList.contains('dark-mode');
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    const newTheme = isDark ? 'light' : 'dark';
     
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    iconMoon.style.display = isDark ? 'none' : 'block';
-    iconSun.style.display = isDark ? 'block' : 'none';
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    iconMoon.style.display = newTheme === 'dark' ? 'none' : 'block';
+    iconSun.style.display = newTheme === 'dark' ? 'block' : 'none';
   });
   
-  // Listen for system theme changes
+  // Listen for system theme changes (only when no manual preference)
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
     if (!localStorage.getItem('theme')) {
-      // No saved preference, follow system
-      if (e.matches) {
-        body.classList.add('dark-mode');
-        iconMoon.style.display = 'none';
-        iconSun.style.display = 'block';
-      } else {
-        body.classList.remove('dark-mode');
-        iconMoon.style.display = 'block';
-        iconSun.style.display = 'none';
-      }
+      const isDark = e.matches;
+      html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      iconMoon.style.display = isDark ? 'none' : 'block';
+      iconSun.style.display = isDark ? 'block' : 'none';
     }
   });
 })();

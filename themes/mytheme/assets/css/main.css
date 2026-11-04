@@ -31,27 +31,7 @@
 }
 
 /* ===== Dark Mode Support ===== */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0a0a0a;
-    --color-surface: #141414;
-    --color-text: #e5e5e5;
-    --color-text-secondary: #a3a3a3;
-    --color-text-tertiary: #737373;
-    --color-accent: #3b82f6;
-    --color-accent-hover: #2563eb;
-    --color-border: #262626;
-    --color-code-bg: #1a1a1a;
-    --color-code-text: #e5e5e5;
-    --color-tag-bg: #1f1f1f;
-    --color-tag-hover: #2a2a2a;
-    --color-link: #3b82f6;
-    --color-link-hover: #2563eb;
-  }
-}
-
-/* ===== Manual Dark Mode Override ===== */
-body.dark-mode {
+html[data-theme="dark"] {
   --color-bg: #0a0a0a;
   --color-surface: #141414;
   --color-text: #e5e5e5;
@@ -68,23 +48,23 @@ body.dark-mode {
   --color-link-hover: #2563eb;
 }
 
-body.dark-mode .header {
+html[data-theme="dark"] .header {
   background: rgba(10, 10, 10, 0.85);
 }
 
-body:not(.dark-mode) .theme-toggle .icon-moon {
+html[data-theme="light"] .theme-toggle .icon-moon {
   display: block;
 }
 
-body:not(.dark-mode) .theme-toggle .icon-sun {
+html[data-theme="light"] .theme-toggle .icon-sun {
   display: none;
 }
 
-body.dark-mode .theme-toggle .icon-moon {
+html[data-theme="dark"] .theme-toggle .icon-moon {
   display: none;
 }
 
-body.dark-mode .theme-toggle .icon-sun {
+html[data-theme="dark"] .theme-toggle .icon-sun {
   display: block;
 }
 
