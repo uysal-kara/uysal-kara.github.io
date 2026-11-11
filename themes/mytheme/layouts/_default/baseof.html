@@ -3,10 +3,21 @@
   <head>
     {{ partial "head.html" . }}
     {{ partial "analytics.html" . }}
+    <!-- Inline theme init to prevent flash of incorrect theme -->
+    <script>
+      (function() {
+        var html = document.documentElement;
+        var savedTheme = localStorage.getItem('theme');
+        var systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+        html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      })();
+    </script>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to content</a>
     {{ partial "header.html" . }}
-    <main class="container">
+    <main class="container" id="main" tabindex="-1">
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}

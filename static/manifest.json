@@ -1,0 +1,29 @@
+{
+  "name": "Uysal KARA - Senior Developer",
+  "short_name": "Uysal KARA",
+  "description": "Senior Developer | Java, DDD, TDD, Microservices, Spring Boot",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafafa",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/images/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/og-banner.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["blog", "portfolio", "developer"],
+  "screenshots": []
+}

@@ -45,12 +45,20 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:creator" content="@uysal_kara" />
 
+<!-- Theme color for mobile browsers -->
+<meta name="theme-color" content="#2563eb" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+<!-- Web App Manifest -->
+<link rel="manifest" href="{{ "manifest.json" | absURL }}" />
+
 <!-- Canonical URL -->
 <link rel="canonical" href="{{ .Permalink }}" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="{{ "images/favicon.ico" | absURL }}" />
 <link rel="apple-touch-icon" href="{{ "images/favicon.ico" | absURL }}" />
+<link rel="icon" type="image/svg+xml" href="{{ "images/favicon.ico" | absURL }}" />
 
 <!-- RSS Feed -->
 {{ range .AlternativeOutputFormats -}}
@@ -61,3 +69,5 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+{{ partial "schema.html" . }}
